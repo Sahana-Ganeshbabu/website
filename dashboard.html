@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MediFliers | Dashboard</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="loader">
+      <div class="loader-orb"></div>
+    </div>
+    <div class="overlay"></div>
+    <div class="dashboard-layout page-shell">
+      <aside class="sidebar glass">
+        <a href="index.html" class="logo">
+          <span class="logo-mark"></span>
+          <span>MediFliers</span>
+        </a>
+        <div class="sidebar-nav">
+          <a href="#overview" class="active">Overview</a>
+          <a href="#droneFormSection">Drone Registration</a>
+          <a href="#requestFormSection">Medicine Requests</a>
+          <a href="#assignmentsSection">Assignments</a>
+          <a href="tracking.html">Delivery Tracking</a>
+          <a href="payment.html">Payment & Invoice</a>
+          <button id="logoutBtn" type="button">Logout</button>
+        </div>
+      </aside>
+      <main class="dashboard-main container">
+        <div class="topbar">
+          <button class="btn btn-secondary sidebar-toggle" data-open-sidebar>Menu</button>
+          <div>
+            <h2 id="welcomeHeading">Welcome back</h2>
+            <p class="section-sub">Manage drones, requests, and delivery assignments.</p>
+          </div>
+          <div style="display: flex; gap: 0.5rem">
+            <button class="btn btn-secondary" data-theme-toggle>Dark Mode</button>
+            <button class="btn btn-secondary" data-close-sidebar>Close</button>
+          </div>
+        </div>
+
+        <section id="overview" class="stats reveal">
+          <article class="stat-card glass">
+            <h3 id="totalDrones">0</h3>
+            <p>Total Drones</p>
+          </article>
+          <article class="stat-card glass">
+            <h3 id="activeRequests">0</h3>
+            <p>Active Requests</p>
+          </article>
+          <article class="stat-card glass">
+            <h3 id="completedDeliveries">0</h3>
+            <p>Completed Deliveries</p>
+          </article>
+        </section>
+
+        <section class="grid-two">
+          <article id="droneFormSection" class="panel glass reveal">
+            <h4>Drone Owner Registration</h4>
+            <form id="droneForm" class="auth-form">
+              <div class="field"><label for="ownerName">Owner Name</label><input id="ownerName" required /></div>
+              <div class="field"><label for="droneId">Drone ID</label><input id="droneId" required /></div>
+              <div class="field"><label for="droneCapacity">Drone Capacity</label><input id="droneCapacity" required /></div>
+              <div class="field"><label for="droneLocation">Current Location</label><input id="droneLocation" required /></div>
+              <div class="field"><label for="ownerPhone">Phone Number</label><input id="ownerPhone" required /></div>
+              <div class="field">
+                <label for="availabilityStatus">Availability Status</label>
+                <select id="availabilityStatus" required>
+                  <option value="Available">Available</option>
+                  <option value="Unavailable">Unavailable</option>
+                </select>
+              </div>
+              <button class="btn btn-primary" type="submit">Save Drone</button>
+            </form>
+          </article>
+
+          <article id="requestFormSection" class="panel glass reveal">
+            <h4>Hospital Medicine Request</h4>
+            <form id="requestForm" class="auth-form">
+              <div class="field"><label for="hospitalName">Hospital Name</label><input id="hospitalName" required /></div>
+              <div class="field"><label for="hospitalLocation">Location</label><input id="hospitalLocation" required /></div>
+              <div class="field"><label for="medicineRequired">Medicine Required</label><input id="medicineRequired" required /></div>
+              <div class="field"><label for="medicineQuantity">Quantity</label><input id="medicineQuantity" required /></div>
+              <div class="field">
+                <label for="emergencyLevel">Emergency Level</label>
+                <select id="emergencyLevel" required>
+                  <option value="High">High</option>
+                  <option value="Medium">Medium</option>
+                  <option value="Low">Low</option>
+                </select>
+              </div>
+              <div class="field"><label for="hospitalContact">Contact Number</label><input id="hospitalContact" required /></div>
+              <button class="btn btn-primary" type="submit">Save Request</button>
+            </form>
+          </article>
+        </section>
+
+        <section class="grid-two">
+          <article class="panel glass reveal">
+            <div class="item-head">
+              <h4>Available Drones</h4>
+            </div>
+            <div class="list" id="droneList"></div>
+          </article>
+          <article class="panel glass reveal">
+            <div class="item-head">
+              <h4>Medicine Requests</h4>
+            </div>
+            <div class="list" id="requestList"></div>
+          </article>
+        </section>
+
+        <section id="assignmentsSection" class="panel glass reveal" style="margin-top: 1rem">
+          <div class="item-head">
+            <h4>Delivery Assignments</h4>
+            <button id="runMatchBtn" class="btn btn-primary btn-small" type="button">Run Matching</button>
+          </div>
+          <div class="list" id="assignmentList"></div>
+        </section>
+      </main>
+    </div>
+    <div class="toast-wrap" data-toast-wrap></div>
+    <script src="script.js"></script>
+    <script src="dashboard.js"></script>
+  </body>
+</html>

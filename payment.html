@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MediFliers | Payment & Invoice</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="loader">
+      <div class="loader-orb"></div>
+    </div>
+    <div class="overlay"></div>
+    <div class="dashboard-layout page-shell">
+      <aside class="sidebar glass">
+        <a href="index.html" class="logo">
+          <span class="logo-mark"></span>
+          <span>MediFliers</span>
+        </a>
+        <div class="sidebar-nav">
+          <a href="dashboard.html">Overview</a>
+          <a href="dashboard.html#droneFormSection">Drone Registration</a>
+          <a href="dashboard.html#requestFormSection">Medicine Requests</a>
+          <a href="dashboard.html#assignmentsSection">Assignments</a>
+          <a href="tracking.html">Delivery Tracking</a>
+          <a href="payment.html" class="active">Payment & Invoice</a>
+          <button id="logoutBtn" type="button">Logout</button>
+        </div>
+      </aside>
+      <main class="dashboard-main container">
+        <div class="topbar">
+          <button class="btn btn-secondary sidebar-toggle" data-open-sidebar>Menu</button>
+          <div>
+            <h2 id="welcomeHeading">Payment & Invoice</h2>
+            <p class="section-sub">Fintech-style billing for emergency drone medicine deliveries.</p>
+          </div>
+          <div style="display: flex; gap: 0.5rem">
+            <button class="btn btn-secondary" data-theme-toggle>Dark Mode</button>
+            <button class="btn btn-secondary" data-close-sidebar>Close</button>
+          </div>
+        </div>
+
+        <section class="payment-layout">
+          <article class="panel glass reveal payment-summary">
+            <h4>Complete Payment</h4>
+            <p class="section-sub">Select a delivery assignment and pay securely.</p>
+            <div class="field">
+              <label for="assignmentSelect">Delivery Assignment</label>
+              <select id="assignmentSelect"></select>
+            </div>
+            <div class="charge-row">
+              <span>Delivery charges</span>
+              <strong id="deliveryCharge">₹0</strong>
+            </div>
+            <div class="charge-row">
+              <span>Emergency charges</span>
+              <strong id="emergencyCharge">₹0</strong>
+            </div>
+            <div class="charge-row total">
+              <span>Total amount</span>
+              <strong id="totalAmount">₹0</strong>
+            </div>
+            <p class="section-sub" style="margin-top: 0.6rem">
+              Payment status: <span class="chip pending" id="paymentStatusChip">Unpaid</span>
+            </p>
+            <h4 style="margin-top: 1rem">Payment method</h4>
+            <div class="pay-methods" id="payMethods">
+              <button type="button" class="pay-method selected" data-method="UPI">
+                <strong>UPI</strong>
+                <span>Instant</span>
+              </button>
+              <button type="button" class="pay-method" data-method="Card">
+                <strong>Card</strong>
+                <span>Visa / Mastercard</span>
+              </button>
+              <button type="button" class="pay-method" data-method="Net Banking">
+                <strong>Net Banking</strong>
+                <span>All major banks</span>
+              </button>
+            </div>
+            <button class="btn btn-primary" id="payNowBtn" type="button" style="width: 100%">Pay Now</button>
+          </article>
+
+          <article class="panel glass reveal">
+            <h4>Delivery Invoice Preview</h4>
+            <div id="invoicePreview" class="invoice-card" style="margin-top: 0.75rem"></div>
+          </article>
+        </section>
+
+        <section class="panel glass reveal" style="margin-top: 1rem">
+          <h4>Delivery Invoices</h4>
+          <p class="section-sub">Professional invoice cards for all billable deliveries.</p>
+          <div class="history-grid" id="invoiceList" style="margin-top: 0.75rem"></div>
+        </section>
+
+        <section class="panel glass reveal" style="margin-top: 1rem">
+          <h4>Payment History</h4>
+          <div class="history-grid" id="paymentHistory" style="margin-top: 0.75rem"></div>
+        </section>
+      </main>
+    </div>
+
+    <div class="modal-overlay" id="successModal" aria-hidden="true">
+      <div class="modal-card glass">
+        <div class="modal-icon">✓</div>
+        <h3>Payment Successful</h3>
+        <p class="section-sub" id="successMessage">Your payment has been processed.</p>
+        <button class="btn btn-primary" id="closeModalBtn" type="button">Done</button>
+      </div>
+    </div>
+
+    <div class="toast-wrap" data-toast-wrap></div>
+    <script src="script.js"></script>
+    <script src="payment.js"></script>
+  </body>
+</html>

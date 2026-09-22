@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MediFliers | Delivery Tracking</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="loader">
+      <div class="loader-orb"></div>
+    </div>
+    <div class="overlay"></div>
+    <div class="dashboard-layout page-shell">
+      <aside class="sidebar glass">
+        <a href="index.html" class="logo">
+          <span class="logo-mark"></span>
+          <span>MediFliers</span>
+        </a>
+        <div class="sidebar-nav">
+          <a href="dashboard.html">Overview</a>
+          <a href="dashboard.html#droneFormSection">Drone Registration</a>
+          <a href="dashboard.html#requestFormSection">Medicine Requests</a>
+          <a href="dashboard.html#assignmentsSection">Assignments</a>
+          <a href="tracking.html" class="active">Delivery Tracking</a>
+          <a href="payment.html">Payment & Invoice</a>
+          <button id="logoutBtn" type="button">Logout</button>
+        </div>
+      </aside>
+      <main class="dashboard-main container">
+        <div class="topbar">
+          <button class="btn btn-secondary sidebar-toggle" data-open-sidebar>Menu</button>
+          <div>
+            <h2 id="welcomeHeading">Delivery Tracking</h2>
+            <p class="section-sub">Live workflow visibility for active and completed medicine deliveries.</p>
+          </div>
+          <div style="display: flex; gap: 0.5rem">
+            <button class="btn btn-secondary" data-theme-toggle>Dark Mode</button>
+            <button class="btn btn-secondary" data-close-sidebar>Close</button>
+          </div>
+        </div>
+
+        <section class="tracking-hero glass reveal">
+          <h3 style="margin: 0 0 0.35rem">Real-time delivery operations</h3>
+          <p class="section-sub" style="margin: 0">Monitor stages, ETA, and assignment details across your fleet.</p>
+          <div class="tracking-stats" style="margin-top: 1rem">
+            <article class="tracking-stat">
+              <strong id="activeCount">0</strong>
+              <span>Active Deliveries</span>
+            </article>
+            <article class="tracking-stat">
+              <strong id="inTransitCount">0</strong>
+              <span>In Transit</span>
+            </article>
+            <article class="tracking-stat">
+              <strong id="deliveredCount">0</strong>
+              <span>Delivered Today</span>
+            </article>
+          </div>
+        </section>
+
+        <section class="page-grid" id="deliveryCards"></section>
+      </main>
+    </div>
+    <div class="toast-wrap" data-toast-wrap></div>
+    <script src="script.js"></script>
+    <script src="tracking.js"></script>
+  </body>
+</html>

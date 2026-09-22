@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MediFliers | Login & Signup</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="loader">
+      <div class="loader-orb"></div>
+    </div>
+
+    <div class="auth-wrap page-shell">
+      <section class="auth-shell glass reveal">
+        <article class="auth-pane">
+          <a href="index.html" class="logo">
+            <span class="logo-mark"></span>
+            <span>MediFliers</span>
+          </a>
+          <h2 id="authTitle">Login to continue</h2>
+          <p>Access your coordination dashboard for emergency medicine drone operations.</p>
+          <form class="auth-form" id="authForm">
+            <div class="field">
+              <label for="email">Email</label>
+              <input id="email" type="email" required />
+            </div>
+            <div class="field">
+              <label for="password">Password</label>
+              <input id="password" type="password" minlength="6" required />
+            </div>
+            <div class="field">
+              <label for="role">Role</label>
+              <select id="role" required>
+                <option value="Hospital">Hospital</option>
+                <option value="Drone Owner">Drone Owner</option>
+              </select>
+            </div>
+            <button class="btn btn-primary" id="authSubmit" type="submit">Login</button>
+          </form>
+          <p class="auth-switch">
+            <span id="switchLabel">New to MediFliers?</span>
+            <button id="switchMode" type="button">Create account</button>
+          </p>
+          <button class="btn btn-secondary" type="button" data-theme-toggle>Toggle Dark Mode</button>
+        </article>
+        <article class="auth-pane">
+          <h3>Why teams choose MediFliers</h3>
+          <div class="cards">
+            <div class="card glass">
+              <h3>Fast assignment</h3>
+              <p>Urgent requests are mapped to available drones in seconds.</p>
+            </div>
+            <div class="card glass">
+              <h3>Unified operations</h3>
+              <p>Track hospitals, owners, requests, and deliveries in one space.</p>
+            </div>
+            <div class="card glass">
+              <h3>Reliable updates</h3>
+              <p>Follow each request from pending to completed with clear statuses.</p>
+            </div>
+          </div>
+        </article>
+      </section>
+      <div class="toast-wrap" data-toast-wrap></div>
+    </div>
+
+    <script src="script.js"></script>
+    <script src="auth.js"></script>
+  </body>
+</html>
